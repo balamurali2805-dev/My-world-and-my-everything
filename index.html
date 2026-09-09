@@ -122,14 +122,6 @@ h1{
 
 .memory-card[aria-expanded="true"] .memory-content{display:block}
 .memory-content p{margin:0 0 13px}.memory-content p:last-child{margin-bottom:0}
-.chapter{
-  grid-column:1/-1;min-height:auto;background:var(--green-dark);color:#fffaf0;
-  border-color:var(--green-dark);text-align:center
-}
-.chapter .card-toggle{min-height:110px;align-items:center;justify-content:center}
-.chapter .date{color:var(--sun);font-size:14px}
-.chapter .plus{display:none}
-.undated{min-height:245px}
 .letter-link-wrap{text-align:center;padding:0 0 70px}
 .letter-link{
   display:inline-flex;align-items:center;gap:10px;padding:15px 23px;
@@ -154,21 +146,19 @@ footer .flower{font-size:25px;margin-bottom:8px}
   .subtitle{font-size:16px;line-height:1.55}
   .theory{margin-top:27px;padding:21px 15px;font-size:17px;line-height:1.55}
   .board{grid-template-columns:1fr 1fr;gap:11px;padding:18px 0 38px}
-  .memory-card,.undated{min-height:190px}
+  .memory-card{min-height:190px}
   .card-toggle{min-height:190px;padding:17px 15px}
   .date{font-size:10px;letter-spacing:.08em}
   .memory-image{height:105px;margin-top:12px}
   .plus{width:34px;height:34px;font-size:24px}
   .memory-content{padding:0 15px 18px;font-size:15.5px;line-height:1.65}
-  .chapter .card-toggle{min-height:92px;padding:15px}
-  .chapter .date{font-size:11px}
   .letter-link-wrap{padding:0 0 48px}
   .letter-link{width:100%;justify-content:center}
   footer{padding-bottom:40px}
 }
 @media(max-width:390px){
   .board{grid-template-columns:1fr}
-  .memory-card,.undated,.card-toggle{min-height:155px}
+  .memory-card,.card-toggle{min-height:155px}
   .memory-card[aria-expanded="true"] .card-toggle{min-height:110px}
 }
 @media(prefers-reduced-motion:reduce){
@@ -313,15 +303,6 @@ footer .flower{font-size:25px;margin-bottom:8px}
         <div class="memory-content"><p>i got sick. you came and you took care of me. you made rasam rice for me. thanks i love you</p></div>
       </article>
 
-      <!-- GREEN BLOCK - this is intentionally NOT a portrait card. -->
-      <article class="memory-card chapter" tabindex="0" aria-expanded="false">
-        <button class="card-toggle" type="button" aria-expanded="false">
-          <span class="date">EVERYTHING STARTED AFTER THIS. MY SISTER MARRIAGE.</span>
-          <span class="plus" aria-hidden="true">+</span>
-        </button>
-        <div class="memory-content"></div>
-      </article>
-
       <!-- IMAGE - 14 JANUARY 2026: Put your photo in the same folder as index.html and name it exactly: image - 14 january 2026.jpg. You can change the filename in the src below if you prefer. -->
       <article class="memory-card" tabindex="0" aria-expanded="false">
         <button class="card-toggle" type="button" aria-expanded="false">
@@ -333,6 +314,7 @@ footer .flower{font-size:25px;margin-bottom:8px}
         <div class="memory-content"><p>The day i came for you and begged you to take me back. DESPITE EVERYTHING you did.i went back the next morning to home happily.</p></div>
       </article>
 
+      <!-- GREEN BLOCK - NOT A CARD. This is a standalone note between the dated memories. -->
       <div class="memory-note" role="note">
         <p>was busy all the weekends, everything was messy in my home so couldn&#x27;t invite you. i failed to handle it properly i failed to communicate properly.</p>
       </div>
