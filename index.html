@@ -43,11 +43,38 @@ h1{
 }
 .subtitle{margin:0 auto;max-width:600px;color:#6c6958;font-size:18px}
 .theory{
-  max-width:730px;margin:35px auto 0;padding:25px 32px;
+  max-width:900px;margin:35px auto 0;padding:27px 30px;
   border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-  font-size:20px;font-style:italic
+  text-align:left
 }
-.theory strong{color:var(--green);font-style:normal}
+.theory-title{
+  text-align:center;color:var(--green);
+  font:700 11px/1.3 Arial,sans-serif;letter-spacing:.2em;
+  text-transform:uppercase;margin-bottom:19px
+}
+.theory-intro{
+  max-width:700px;margin:0 auto 21px;text-align:center;
+  color:#5f5a49;font-size:17px;line-height:1.6
+}
+.theory-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.theory-part{
+  padding:20px 21px;background:#fffdf6;border:1px solid var(--line);
+  box-shadow:0 8px 24px rgba(68,54,20,.05)
+}
+.theory-part h3{
+  margin:0 0 8px;color:var(--green);
+  font:700 12px/1.3 Arial,sans-serif;letter-spacing:.12em;
+  text-transform:uppercase
+}
+.theory-part p{margin:0;font-size:16px;line-height:1.65;color:#494638}
+.theory-part strong{color:var(--green);font-style:normal}
+@media(max-width:600px){
+  .theory{margin-top:27px;padding:22px 14px}
+  .theory-intro{font-size:16px;line-height:1.55}
+  .theory-grid{grid-template-columns:1fr;gap:10px}
+  .theory-part{padding:17px 16px}
+  .theory-part p{font-size:15.5px;line-height:1.6}
+}
 .board{
   display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
   gap:20px;padding:24px 0 58px
@@ -174,9 +201,28 @@ footer .flower{font-size:25px;margin-bottom:8px}
   <div class="kicker">For Ammu · Our best days</div>
   <h1>Our little collection.</h1>
   <p class="subtitle">Not every day was perfect. But these are the days I keep coming back to.</p>
-  <div class="theory">
-    A sunflower doesn't spend its life searching every patch of light.
-    <strong>It knows where its sun is, and keeps turning toward it.</strong>
+  <div class="theory" aria-label="Day and Night in the Sunflower Theory">
+    <div class="theory-title">Day and Night in the Theory</div>
+    <p class="theory-intro">
+      The sunflower theory feels a little different when you think about both
+      the light we share and the moments when we have to become each other's light.
+    </p>
+    <div class="theory-grid">
+      <section class="theory-part">
+        <h3>During the day</h3>
+        <p>
+          Sunflowers face and follow the sun together, representing good times
+          when you both focus on growth, positivity, and external happiness.
+        </p>
+      </section>
+      <section class="theory-part">
+        <h3>At night</h3>
+        <p>
+          When the sun goes down and the light fades, the theory suggests the
+          sunflowers turn to face each other, finding warmth and light in one another.
+        </p>
+      </section>
+    </div>
   </div>
 </header>
 
