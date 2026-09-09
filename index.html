@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f5c518">
+<title>Our Best Days — Ammu</title>
+<style>
+:root {
+  --sun:#f5c518; --sun2:#ffd84a; --sun-deep:#b67f00;
+  --ink:#283126; --green:#405b35; --green-dark:#263d25;
+  --cream:#fff9ec; --paper:#fffdf8; --line:#dfd2b0;
+  --shadow:0 18px 55px rgba(68,54,20,.11);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;color:var(--ink);background:var(--cream);
+  font-family:Georgia,"Times New Roman",serif;line-height:1.65;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;
+  background-image:radial-gradient(circle at 18% 24%,#826719 0 1px,transparent 1.6px),
+                   radial-gradient(circle at 76% 72%,#826719 0 1px,transparent 1.6px);
+  background-size:27px 27px,35px 35px;mix-blend-mode:multiply;
+}
+main{width:min(1160px,calc(100% - 40px));margin:auto}
+header{padding:72px 0 42px;text-align:center}
+.sunflower-mark{
+  display:inline-grid;place-items:center;width:64px;height:64px;
+  margin-bottom:17px;border-radius:50%;background:var(--sun);
+  box-shadow:0 0 0 9px rgba(245,197,24,.13),0 12px 30px rgba(160,112,0,.16);
+  font-size:34px;
+}
+.kicker{
+  font:700 11px/1.2 Arial,sans-serif;letter-spacing:.25em;
+  text-transform:uppercase;color:var(--green)
+}
+h1{
+  margin:13px 0 12px;font-size:clamp(44px,7vw,78px);
+  line-height:.98;letter-spacing:-.05em;font-weight:500
+}
+.subtitle{margin:0 auto;max-width:600px;color:#6c6958;font-size:18px}
+.theory{
+  max-width:730px;margin:35px auto 0;padding:25px 32px;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  font-size:20px;font-style:italic
+}
+.theory strong{color:var(--green);font-style:normal}
+.board{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:20px;padding:24px 0 58px
+}
+.memory-card{
+  position:relative;background:var(--paper);border:1px solid var(--line);
+  box-shadow:var(--shadow);min-height:245px;overflow:hidden;
+  transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease
+}
+.memory-card:hover{transform:translateY(-5px);box-shadow:0 23px 60px rgba(68,54,20,.15)}
+.memory-card.featured{
+  border:3px solid var(--sun);transform:rotate(-.6deg);
+  box-shadow:0 22px 60px rgba(245,197,24,.24)
+}
+.memory-card.featured:hover{transform:rotate(-.6deg) translateY(-5px)}
+.card-toggle{
+  width:100%;min-height:245px;padding:25px 23px;border:0;background:none;
+  text-align:left;cursor:pointer;color:inherit;font:inherit;
+  display:flex;flex-direction:column;justify-content:space-between
+}
+.date{
+  font:700 12px/1.4 Arial,sans-serif;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--green)
+}
+.plus{
+  align-self:flex-end;width:38px;height:38px;border:1px solid var(--line);
+  border-radius:50%;display:grid;place-items:center;
+  font:300 27px/1 Arial,sans-serif;color:var(--sun-deep);
+  transition:transform .2s ease,background .2s ease
+}
+.card-toggle:hover .plus{background:rgba(245,197,24,.12)}
+.memory-card[aria-expanded="true"] .plus{transform:rotate(45deg);background:rgba(245,197,24,.12)}
+.memory-content{display:none;padding:0 23px 25px;font-size:16px}
+.memory-card[aria-expanded="true"] .memory-content{display:block}
+.memory-content p{margin:0 0 13px}.memory-content p:last-child{margin-bottom:0}
+.chapter{
+  grid-column:1/-1;min-height:auto;background:var(--green-dark);color:#fffaf0;
+  border-color:var(--green-dark);text-align:center
+}
+.chapter .card-toggle{min-height:110px;align-items:center;justify-content:center}
+.chapter .date{color:var(--sun);font-size:14px}
+.chapter .plus{display:none}
+.undated{min-height:245px}
+.letter-link-wrap{text-align:center;padding:0 0 70px}
+.letter-link{
+  display:inline-flex;align-items:center;gap:10px;padding:15px 23px;
+  border:2px solid var(--sun);color:var(--green);text-decoration:none;
+  font:700 12px Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;
+  background:var(--paper);box-shadow:0 10px 30px rgba(68,54,20,.08);
+  transition:transform .2s ease,background .2s ease
+}
+.letter-link:hover{transform:translateY(-3px);background:#fff9dc}
+footer{padding:0 0 65px;text-align:center;color:#77715d;font-size:14px}
+footer .flower{font-size:25px;margin-bottom:8px}
+:focus-visible{outline:3px solid var(--sun-deep);outline-offset:5px}
+@media(max-width:980px){
+  main{width:min(760px,calc(100% - 30px))}
+  .board{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+}
+@media(max-width:600px){
+  main{width:calc(100% - 22px)}
+  header{padding:42px 0 26px}
+  .sunflower-mark{width:56px;height:56px;font-size:29px;margin-bottom:14px}
+  h1{font-size:clamp(42px,13vw,58px);margin-top:11px}
+  .subtitle{font-size:16px;line-height:1.55}
+  .theory{margin-top:27px;padding:21px 15px;font-size:17px;line-height:1.55}
+  .board{grid-template-columns:1fr 1fr;gap:11px;padding:18px 0 38px}
+  .memory-card,.undated{min-height:190px}
+  .card-toggle{min-height:190px;padding:17px 15px}
+  .date{font-size:10px;letter-spacing:.08em}
+  .plus{width:34px;height:34px;font-size:24px}
+  .memory-content{padding:0 15px 18px;font-size:15.5px;line-height:1.65}
+  .chapter .card-toggle{min-height:92px;padding:15px}
+  .chapter .date{font-size:11px}
+  .letter-link-wrap{padding:0 0 48px}
+  .letter-link{width:100%;justify-content:center}
+  footer{padding-bottom:40px}
+}
+@media(max-width:390px){
+  .board{grid-template-columns:1fr}
+  .memory-card,.undated,.card-toggle{min-height:155px}
+  .memory-card[aria-expanded="true"] .card-toggle{min-height:110px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*:before,*:after{transition:none!important}
+}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <div class="sunflower-mark" aria-hidden="true">🌻</div>
+  <div class="kicker">For Ammu · Our best days</div>
+  <h1>Our little collection.</h1>
+  <p class="subtitle">Not every day was perfect. But these are the days I keep coming back to.</p>
+  <div class="theory">
+    A sunflower doesn't spend its life searching every patch of light.
+    <strong>It knows where its sun is, and keeps turning toward it.</strong>
+  </div>
+</header>
+
+<section class="board" aria-label="Our memories">
+
+      <article class="memory-card" tabindex="0" aria-expanded="false">
+        <button class="card-toggle" type="button" aria-expanded="false">
+          <span class="date">9 may 2025</span>
+          <span class="plus" aria-hidden="true">+</span>
+        </button>
+        <div class="memory-content"><p>that korean dessert shop. i ate your entire donut. im sorry for that. the first &quot;us time&quot;</p></div>
+      </article>
+
+      <article class="memory-card" tabindex="0" aria-expanded="false">
+        <button class="card-toggle" type="button" aria-expanded="false">
+          <span class="date">24 may 2025</span>
+          <span class="plus" aria-hidden="true">+</span>
+        </button>
+        <div class="memory-content"><p>the day everything changed, u noticed and i confirmed that i have feelings for you. Best day. avloo azhaga irundha . i asked how was the day , u replied : 10/10 day but i joked that awww u said 10/10 date. lol </p></div>
+      </article>
+
+      <article class="memory-card featured" tabindex="0" aria-expanded="false">
+        <button class="card-toggle" type="button" aria-expanded="false">
+          <span class="date">28 may 2025</span>
+          <span class="plus" aria-hidden="true">+</span>
+        </button>
+        <div class="memory-content"><p>The Big day, First Date, Confession Day</p><p>my bday, i confessed. kite blu. u came by 3:00 pm, the threw us out by 7:00 pm. i did all korali vithai to change ur mind. i loved that. that will best rejection of my life. the final hug. omg. that puzzle keychain, the symbol of our love</p></div>
+      </article>
+
+      <article class="memory-card" tabindex="0" aria-expanded="false">
+        <button class="card-toggle" type="button" aria-expanded="false">
+          <span class="date">13 June 2025</span>
+          <span class="plus" aria-hidden="true">+</span>
+        </button>
+        <div class="memory-content"><p>First time i called u after getting drunk.</p><p>u were listening to every crap i was blabbering. i love you</p></div>
+      </article>
+
+      <article class="memory-card" tabindex="0" aria-expanded="false">
+        <button class="card-toggle" type="button" aria-expanded="false">
+          <span class="date">18 June 2025</span>
+          <span class="plus" aria-hidden="true">+</span>
+        </button>
+        <div class="memory-content"><p>Brought u jhumkhas for the first time, lied about the price cuz i would have killed me. hehe</p></div>
+      </article>
+
+      <article class="memory-card" tabindex="0" aria-expanded="false">
+        <button class="card-toggle" type="button" aria-expanded="false">
+          <span class="date">21 June 2025</span>
+          <span class="plus" aria-hidden="true">+</span>
+        </button>
+        <div class="memory-content"><p>First time in Mc Donalds with you. sorry :) . we hugged and took the cutest picture.</p></div>
+      </article>
+
+      <article class="memory-card" tabindex="0" aria-expanded="false">
+        <button class="card-toggle" type="button" aria-expanded="false">
+          <span class="date">28 June 2025</span>
+          <span class="plus" aria-hidden="true">+</span>
+        </button>
+        <div class="memory-content"><p>The Judgement day</p><p>OMG i was nervous. You accepted my confession and we captured a video. we kissed. omg the kiss. the taste is still in my mouth. you took the cutest picture of me.</p></div>
+      </article>
+
+      <article class="memory-card" tabindex="0" aria-expanded="false">
+        <button class="card-toggle" type="button" aria-expanded="false">
+          <span class="date">26 July 2025</span>
+          <span class="plus" aria-hidden="true">+</span>
+        </button>
+        <div class="memory-content"><p>You helped me to clean our new flat. Another best day of my life.</p></div>
+      </article>
+
+      <article class="memory-card" tabindex="0" aria-expanded="false">
+        <button class="card-toggle" type="button" aria-expanded="false">
+          <span class="date">19 August 2025</span>
+          <span class="plus" aria-hidden="true">+</span>
+        </button>
+        <div class="memory-content"><p>we went for shopping to buy suite for me. the one and only fashion advisor in my life. you are the best.</p></div>
+      </article>
+
+      <article class="memory-card" tabindex="0" aria-expanded="false">
+        <button class="card-toggle" type="button" aria-expanded="false">
+          <span class="date">10 September 2025</span>
+          <span class="plus" aria-hidden="true">+</span>
+        </button>
+        <div class="memory-content"><p>Onam in ur college</p><p>apove mudivu panten kalyanam panirnum nu. apdiyeeee lakshanama paahh.. my girlfriend can slay in both. modern and traditional.</p></div>
+      </article>
+
+      <article class="memory-card" tabindex="0" aria-expanded="false">
+        <button class="card-toggle" type="button" aria-expanded="false">
+          <span class="date">14 November 2025</span>
+          <span class="plus" aria-hidden="true">+</span>
+        </button>
+        <div class="memory-content"><p>i got sick. you came and you took care of me. you made rasam rice for me. thanks i love you</p></div>
+      </article>
+
+      <article class="memory-card chapter" tabindex="0" aria-expanded="false">
+        <button class="card-toggle" type="button" aria-expanded="false">
+          <span class="date">EVERYTHING STARTED AFTER THIS. MY SISTER MARRIAGE.</span>
+          <span class="plus" aria-hidden="true">+</span>
+        </button>
+        <div class="memory-content"></div>
+      </article>
+
+      <article class="memory-card" tabindex="0" aria-expanded="false">
+        <button class="card-toggle" type="button" aria-expanded="false">
+          <span class="date">14 january 2026</span>
+          <span class="plus" aria-hidden="true">+</span>
+        </button>
+        <div class="memory-content"><p>The day i came for you and begged you to take me back. DESPITE EVERYTHING you did.i went back the next morning to home happily.</p></div>
+      </article>
+
+      <article class="memory-card undated" tabindex="0" aria-expanded="false">
+        <button class="card-toggle" type="button" aria-expanded="false">
+          <span class="date"></span>
+          <span class="plus" aria-hidden="true">+</span>
+        </button>
+        <div class="memory-content"><p>was busy all the weekends, everything was messy in my home so couldn&#x27;t invite you. i failed to handle it properly i failed to communicate properly.</p></div>
+      </article>
+
+      <article class="memory-card" tabindex="0" aria-expanded="false">
+        <button class="card-toggle" type="button" aria-expanded="false">
+          <span class="date">14 February 2026</span>
+          <span class="plus" aria-hidden="true">+</span>
+        </button>
+        <div class="memory-content"><p>Our first valentines day. na plan pani vachirundhen.. ana ne thittunadhula na spoil panten. Still one of the best date ever.</p></div>
+      </article>
+
+      <article class="memory-card" tabindex="0" aria-expanded="false">
+        <button class="card-toggle" type="button" aria-expanded="false">
+          <span class="date">31 March 2026</span>
+          <span class="plus" aria-hidden="true">+</span>
+        </button>
+        <div class="memory-content"><p>First movie date. Avloooooo azhaga vandhurundha.. pathutee irundhen.. Project Hail Mary... we were talking like them after movie lol</p></div>
+      </article>
+
+      <article class="memory-card" tabindex="0" aria-expanded="false">
+        <button class="card-toggle" type="button" aria-expanded="false">
+          <span class="date">19 - 20 APRIl 2026</span>
+          <span class="plus" aria-hidden="true">+</span>
+        </button>
+        <div class="memory-content"><p>initially it was happy. Later started to reflect everything on you. without any reasons. we both did things, we fought but you never gave up. what kind of a weak garbage am i. i felt things differently which i didn&#x27;t communicate properly. i should have. My life&#x27;s first biggest mistake was this. not reaching out to you. i wanted to but i didn&#x27;t. Again i spoiled everything gave all the reasons for you to leave me kill me bury me.</p></div>
+      </article>
+
+      <article class="memory-card undated" tabindex="0" aria-expanded="false">
+        <button class="card-toggle" type="button" aria-expanded="false">
+          <span class="date"></span>
+          <span class="plus" aria-hidden="true">+</span>
+        </button>
+        <div class="memory-content"><p>adhukaprom everything was different. odanju sukku 100 ah poi. still the day i fell in love with you 24 may 2025. i couldn&#x27;t imagine a life without her.</p></div>
+      </article>
+
+      <article class="memory-card undated" tabindex="0" aria-expanded="false">
+        <button class="card-toggle" type="button" aria-expanded="false">
+          <span class="date"></span>
+          <span class="plus" aria-hidden="true">+</span>
+        </button>
+        <div class="memory-content"><p>over this period. i might have missed other small hangouts like we drunk, we danced, we went to pasha, we talked a lot. mari mari gift panikitadhu...neriyyyaaaaa iruku solite polam...</p></div>
+      </article>
+
+      <article class="memory-card undated" tabindex="0" aria-expanded="false">
+        <button class="card-toggle" type="button" aria-expanded="false">
+          <span class="date"></span>
+          <span class="plus" aria-hidden="true">+</span>
+        </button>
+        <div class="memory-content"><p>Ana the love for you i have is genuine. you are telling me that u lost interest. u lost feelings. ana indha past 2 months. feelings ilama interest ilaama ne ena allow panirka maata ne enta pesirka maata. you like me and u do love me. we should have that conversation which we planned to have. i will not disturb you for the next few days. i know my baby will call me. my baby will talk to me. she is still the lil girl whom i fell in love with. things u tell me are killing me but i dont wanna give up. i will not.</p></div>
+      </article>
+
+      <article class="memory-card undated" tabindex="0" aria-expanded="false">
+        <button class="card-toggle" type="button" aria-expanded="false">
+          <span class="date"></span>
+          <span class="plus" aria-hidden="true">+</span>
+        </button>
+        <div class="memory-content"><p>i wanna marry you thangamma. na mela mention panirka elamee na vera yaarodaiyu pannadhu ila. ena ivlo special ah feel pana vacha oru ponna na ipdi paniten.. adhu ne sonna mari puiryurapo too late aaagirum nu. but andha andha time la nadakanumnu iruko enavo... vandhone ena ethuko nu na solala ammu. ena push pannadha... things will take time la.. we are making progress. i wanna be your partner... i will do anything to do it, will go any extent for it. </p></div>
+      </article>
+
+      <article class="memory-card undated" tabindex="0" aria-expanded="false">
+        <button class="card-toggle" type="button" aria-expanded="false">
+          <span class="date"></span>
+          <span class="plus" aria-hidden="true">+</span>
+        </button>
+        <div class="memory-content"><p>u have pushed me many times. i never gave up. everytime it made me stronger, by seeing me you are also changing. I still remember your version 2 months back and here we are.</p></div>
+      </article>
+
+      <article class="memory-card undated" tabindex="0" aria-expanded="false">
+        <button class="card-toggle" type="button" aria-expanded="false">
+          <span class="date"></span>
+          <span class="plus" aria-hidden="true">+</span>
+        </button>
+        <div class="memory-content"><p>we passed the red string theory, this is another test by the universe. lets not give up. i will not. no pressure.</p></div>
+      </article>
+
+      <article class="memory-card undated" tabindex="0" aria-expanded="false">
+        <button class="card-toggle" type="button" aria-expanded="false">
+          <span class="date"></span>
+          <span class="plus" aria-hidden="true">+</span>
+        </button>
+        <div class="memory-content"><p>Neriya iruku neriya pesa ana nerla pesren.</p></div>
+      </article>
+
+      <article class="memory-card undated" tabindex="0" aria-expanded="false">
+        <button class="card-toggle" type="button" aria-expanded="false">
+          <span class="date"></span>
+          <span class="plus" aria-hidden="true">+</span>
+        </button>
+        <div class="memory-content"><p>ELAME FROM THE BOTTOM OF MY HEART.</p></div>
+      </article>
+
+      <article class="memory-card undated" tabindex="0" aria-expanded="false">
+        <button class="card-toggle" type="button" aria-expanded="false">
+          <span class="date"></span>
+          <span class="plus" aria-hidden="true">+</span>
+        </button>
+        <div class="memory-content"><p>you are telling me that &quot;that girl is no more, that version is dead&quot;. Ammu, when i said i love you, its all the version.. past, present, future. not only a specific version, i love all of you.</p></div>
+      </article>
+</section>
+
+<div style="text-align:center;padding:0 0 45px;">
+  <a class="letter-link" href="letter.html">Read the letter <span aria-hidden="true">→</span></a>
+</div>
+<footer>
+  <div class="flower" aria-hidden="true">🌻</div>
+  made with everything from the bottom of my heart.
+</footer>
+</main>
+
+<script>
+document.querySelectorAll(".memory-card:not(.chapter) .card-toggle").forEach(button => {
+  button.addEventListener("click", () => {
+    const card = button.closest(".memory-card");
+    const open = card.getAttribute("aria-expanded") === "true";
+    card.setAttribute("aria-expanded", String(!open));
+    button.setAttribute("aria-expanded", String(!open));
+  });
+});
+</script>
+</body>
+</html>
