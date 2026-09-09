@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#f5c518">
 <title>Our Best Days — Ammu</title>
 <style>
-:root {
+:root{
   --sun:#f5c518; --sun2:#ffd84a; --sun-deep:#b67f00;
   --ink:#283126; --green:#405b35; --green-dark:#263d25;
   --cream:#fff9ec; --paper:#fffdf8; --line:#dfd2b0;
@@ -35,152 +35,103 @@ header{padding:72px 0 42px;text-align:center}
 }
 .kicker{
   font:700 11px/1.2 Arial,sans-serif;letter-spacing:.25em;
-  text-transform:uppercase;color:var(--green)
+  text-transform:uppercase;color:var(--green);
 }
 h1{
   margin:13px 0 12px;font-size:clamp(44px,7vw,78px);
-  line-height:.98;letter-spacing:-.05em;font-weight:500
+  line-height:.98;letter-spacing:-.05em;font-weight:500;
 }
 .subtitle{margin:0 auto;max-width:600px;color:#6c6958;font-size:18px}
 .theory{
-  max-width:900px;margin:35px auto 0;padding:27px 30px;
+  max-width:730px;margin:35px auto 0;padding:25px 32px;
   border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-  text-align:left
+  font-size:20px;font-style:italic;
 }
-.theory-title{
-  text-align:center;color:var(--green);
-  font:700 11px/1.3 Arial,sans-serif;letter-spacing:.2em;
-  text-transform:uppercase;margin-bottom:19px
-}
-.theory-intro{
-  max-width:700px;margin:0 auto 21px;text-align:center;
-  color:#5f5a49;font-size:17px;line-height:1.6
-}
-.theory-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.theory-part{
-  padding:20px 21px;background:#fffdf6;border:1px solid var(--line);
-  box-shadow:0 8px 24px rgba(68,54,20,.05)
-}
-.theory-part h3{
-  margin:0 0 8px;color:var(--green);
-  font:700 12px/1.3 Arial,sans-serif;letter-spacing:.12em;
-  text-transform:uppercase
-}
-.theory-part p{margin:0;font-size:16px;line-height:1.65;color:#494638}
-.theory-part strong{color:var(--green);font-style:normal}
-@media(max-width:600px){
-  .theory{margin-top:27px;padding:22px 14px}
-  .theory-intro{font-size:16px;line-height:1.55}
-  .theory-grid{grid-template-columns:1fr;gap:10px}
-  .theory-part{padding:17px 16px}
-  .theory-part p{font-size:15.5px;line-height:1.6}
-}
+.theory strong{color:var(--green);font-style:normal}
+
 .board{
   display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:20px;padding:24px 0 58px
+  gap:20px;padding:24px 0 58px;
 }
 .memory-card{
   position:relative;background:var(--paper);border:1px solid var(--line);
-  box-shadow:var(--shadow);min-height:245px;overflow:hidden;
-  transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease
+  box-shadow:var(--shadow);min-height:360px;overflow:hidden;
+  transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
 }
 .memory-card:hover{transform:translateY(-5px);box-shadow:0 23px 60px rgba(68,54,20,.15)}
 .memory-card.featured{
   border:3px solid var(--sun);transform:rotate(-.6deg);
-  box-shadow:0 22px 60px rgba(245,197,24,.24)
+  box-shadow:0 22px 60px rgba(245,197,24,.24);
 }
 .memory-card.featured:hover{transform:rotate(-.6deg) translateY(-5px)}
+
 .card-toggle{
-  width:100%;min-height:245px;padding:25px 23px;border:0;background:none;
+  width:100%;min-height:360px;padding:18px 18px 15px;border:0;background:none;
   text-align:left;cursor:pointer;color:inherit;font:inherit;
-  display:flex;flex-direction:column;justify-content:space-between
+  display:flex;flex-direction:column;justify-content:space-between;
 }
 .date{
-  font:700 12px/1.4 Arial,sans-serif;letter-spacing:.11em;
-  text-transform:uppercase;color:var(--green)
+  font:700 10px/1.4 Arial,sans-serif;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--green);
 }
-
+.photo-wrap{
+  width:100%;margin:12px 0 12px;
+  display:flex;justify-content:center;
+}
+.memory-image{
+  display:block;width:100%;aspect-ratio:4 / 5;object-fit:cover;
+  border:1px solid var(--line);background:#f7efdc;
+}
 .photo-placeholder{
-  width:100%;
-  aspect-ratio:4 / 5;
-  margin-top:16px;
-  border:1px dashed var(--line);
-  background:rgba(245,197,24,.06);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  gap:6px;
-  color:var(--sun-deep);
+  width:100%;aspect-ratio:4 / 5;
+  border:1px dashed var(--line);background:rgba(245,197,24,.06);
+  display:none;align-items:center;justify-content:center;flex-direction:column;
+  gap:6px;color:var(--sun-deep);
   font:500 13px/1.2 Georgia,"Times New Roman",serif;
 }
 .photo-placeholder span{opacity:.75}
-@media(max-width:600px){
-  .photo-placeholder{margin-top:12px}
-}
-
-.memory-image{
-  display:block;width:100%;aspect-ratio:4 / 5;object-fit:cover;
-  margin:16px 0 0;border:1px solid var(--line);background:#f3ecd9;
-}
-.memory-image[src=""]{display:none}
 .plus{
-  align-self:flex-end;width:38px;height:38px;border:1px solid var(--line);
+  align-self:flex-end;width:36px;height:36px;border:1px solid var(--line);
   border-radius:50%;display:grid;place-items:center;
-  font:300 27px/1 Arial,sans-serif;color:var(--sun-deep);
-  transition:transform .2s ease,background .2s ease
+  font:300 25px/1 Arial,sans-serif;color:var(--sun-deep);
+  transition:transform .2s ease,background .2s ease;
 }
 .card-toggle:hover .plus{background:rgba(245,197,24,.12)}
-.memory-card[aria-expanded="true"] .plus{transform:rotate(45deg);background:rgba(245,197,24,.12)}
-.memory-content{display:none;padding:0 23px 25px;font-size:16px}
-.memory-note{
-  grid-column:1/-1;
-  position:relative;
-  background:var(--green-dark);
-  color:#fffaf0;
-  border:1px solid var(--green-dark);
-  box-shadow:0 16px 38px rgba(38,61,37,.16);
-  padding:24px 30px;
-  margin:2px 0 2px;
-  overflow:hidden;
+.memory-card[aria-expanded="true"] .plus{
+  transform:rotate(45deg);background:rgba(245,197,24,.12);
 }
-.memory-note:before{
-  content:"🌿";
-  position:absolute;
-  right:22px;
-  top:13px;
-  font-size:25px;
-  opacity:.28;
+.memory-card[aria-expanded="true"] .card-toggle{min-height:120px}
+.memory-card[aria-expanded="true"] .photo-wrap{display:none}
+.memory-content{
+  display:none;padding:0 18px 22px;font-size:16px;
 }
-.memory-note p{
-  position:relative;
-  max-width:820px;
-  margin:0;
-  font-size:17px;
-  line-height:1.65;
-}
-@media(max-width:600px){
-  .memory-note{
-    padding:19px 18px;
-    margin:1px 0;
-  }
-  .memory-note p{font-size:15.5px;line-height:1.65;padding-right:18px}
-}
-
 .memory-card[aria-expanded="true"] .memory-content{display:block}
-.memory-content p{margin:0 0 13px}.memory-content p:last-child{margin-bottom:0}
+.memory-content p{margin:0 0 13px}
+.memory-content p:last-child{margin-bottom:0}
+
+.chapter{
+  grid-column:1/-1;min-height:auto;background:var(--green-dark);color:#fffaf0;
+  border-color:var(--green-dark);text-align:center;
+}
+.chapter .card-toggle{
+  min-height:110px;align-items:center;justify-content:center;
+}
+.chapter .date{color:var(--sun);font-size:14px}
+.chapter .plus{display:none}
+
 .letter-link-wrap{text-align:center;padding:0 0 70px}
 .letter-link{
   display:inline-flex;align-items:center;gap:10px;padding:15px 23px;
   border:2px solid var(--sun);color:var(--green);text-decoration:none;
   font:700 12px Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;
   background:var(--paper);box-shadow:0 10px 30px rgba(68,54,20,.08);
-  transition:transform .2s ease,background .2s ease
+  transition:transform .2s ease,background .2s ease;
 }
 .letter-link:hover{transform:translateY(-3px);background:#fff9dc}
 footer{padding:0 0 65px;text-align:center;color:#77715d;font-size:14px}
 footer .flower{font-size:25px;margin-bottom:8px}
 :focus-visible{outline:3px solid var(--sun-deep);outline-offset:5px}
+
 @media(max-width:980px){
   main{width:min(760px,calc(100% - 30px))}
   .board{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
@@ -193,19 +144,21 @@ footer .flower{font-size:25px;margin-bottom:8px}
   .subtitle{font-size:16px;line-height:1.55}
   .theory{margin-top:27px;padding:21px 15px;font-size:17px;line-height:1.55}
   .board{grid-template-columns:1fr 1fr;gap:11px;padding:18px 0 38px}
-  .memory-card{min-height:190px}
-  .card-toggle{min-height:190px;padding:17px 15px}
-  .date{font-size:10px;letter-spacing:.08em}
-  .memory-image{display:block;width:100%;aspect-ratio:4 / 5;object-fit:cover;margin-top:12px;border:1px solid var(--line);background:#f3ecd9;}
-  .plus{width:34px;height:34px;font-size:24px}
-  .memory-content{padding:0 15px 18px;font-size:15.5px;line-height:1.65}
+  .memory-card{min-height:270px}
+  .card-toggle{min-height:270px;padding:14px 12px 12px}
+  .date{font-size:9px;letter-spacing:.08em}
+  .photo-wrap{margin:9px 0}
+  .plus{width:33px;height:33px;font-size:23px}
+  .memory-content{padding:0 12px 17px;font-size:15px;line-height:1.65}
+  .chapter .card-toggle{min-height:92px;padding:15px}
+  .chapter .date{font-size:11px}
   .letter-link-wrap{padding:0 0 48px}
   .letter-link{width:100%;justify-content:center}
   footer{padding-bottom:40px}
 }
 @media(max-width:390px){
   .board{grid-template-columns:1fr}
-  .memory-card,.card-toggle{min-height:155px}
+  .memory-card,.card-toggle{min-height:250px}
   .memory-card[aria-expanded="true"] .card-toggle{min-height:110px}
 }
 @media(prefers-reduced-motion:reduce){
@@ -214,6 +167,7 @@ footer .flower{font-size:25px;margin-bottom:8px}
 }
 </style>
 </head>
+
 <body>
 <main>
 <header>
@@ -221,211 +175,245 @@ footer .flower{font-size:25px;margin-bottom:8px}
   <div class="kicker">For Ammu · Our best days</div>
   <h1>Our little collection.</h1>
   <p class="subtitle">Not every day was perfect. But these are the days I keep coming back to.</p>
-  <div class="theory" aria-label="Day and Night in the Sunflower Theory">
-    <div class="theory-title">Day and Night in the Theory</div>
-    <p class="theory-intro">
-      The sunflower theory feels a little different when you think about both
-      the light we share and the moments when we have to become each other's light.
-    </p>
-    <div class="theory-grid">
-      <section class="theory-part">
-        <h3>During the day</h3>
-        <p>
-          Sunflowers face and follow the sun together, representing good times
-          when you both focus on growth, positivity, and external happiness.
-        </p>
-      </section>
-      <section class="theory-part">
-        <h3>At night</h3>
-        <p>
-          When the sun goes down and the light fades, the theory suggests the
-          sunflowers turn to face each other, finding warmth and light in one another.
-        </p>
-      </section>
-    </div>
+  <div class="theory">
+    A sunflower doesn't spend its life searching every patch of light.
+    <strong>It knows where its sun is, and keeps turning toward it.</strong>
   </div>
 </header>
 
 <section class="board" aria-label="Our memories">
 
-      <article class="memory-card" tabindex="0" aria-expanded="false">
-        <button class="card-toggle" type="button" aria-expanded="false">
-          <span class="date">9 may 2025</span>
-          
-          <img class="memory-image" alt="Memory photo from 9 may 2025" src="1.jpeg" data-photo="1.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-placeholder" aria-hidden="true">🌻<span>Add photo</span></div>
+<!-- 9 MAY 2025 — PHOTO: rename your photo to 1.jpeg -->
+<article class="memory-card" tabindex="0" aria-expanded="false">
+  <button class="card-toggle" type="button" aria-expanded="false">
+    <span class="date">9 May 2025</span>
+    <div class="photo-wrap">
+      <img class="memory-image" src="1.jpeg" alt="Memory photo from 9 May 2025"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="photo-placeholder" aria-hidden="true">🌻<span>Add photo</span></div>
+    </div>
+    <span class="plus" aria-hidden="true">+</span>
+  </button>
+  <div class="memory-content"><p>that korean dessert shop. i ate your entire donut. im sorry for that. the first &quot;us time&quot;</p></div>
+</article>
 
-<span class="plus" aria-hidden="true">+</span>
-        </button>
-        <div class="memory-content"><p>that korean dessert shop. i ate your entire donut. im sorry for that. the first &quot;us time&quot;</p></div>
-      </article>
+<!-- 24 MAY 2025 — PHOTO: rename your photo to 2.jpg -->
+<article class="memory-card" tabindex="0" aria-expanded="false">
+  <button class="card-toggle" type="button" aria-expanded="false">
+    <span class="date">24 May 2025</span>
+    <div class="photo-wrap">
+      <img class="memory-image" src="2.jpg" alt="Memory photo from 24 May 2025"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="photo-placeholder" aria-hidden="true">🌻<span>Add photo</span></div>
+    </div>
+    <span class="plus" aria-hidden="true">+</span>
+  </button>
+  <div class="memory-content"><p>the day everything changed, u noticed and i confirmed that i have feelings for you. Best day. avloo azhaga irundha . i asked how was the day , u replied : 10/10 day but i joked that awww u said 10/10 date. lol </p></div>
+</article>
 
-      <article class="memory-card" tabindex="0" aria-expanded="false">
-        <button class="card-toggle" type="button" aria-expanded="false">
-          <span class="date">24 may 2025</span>
-          
-          <img class="memory-image" alt="Memory photo from 24 may 2025" src="2.jpg" data-photo="2.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-placeholder" aria-hidden="true">🌻<span>Add photo</span></div>
+<!-- 28 MAY 2025 — PHOTO: rename your photo to 3.jpg -->
+<article class="memory-card featured" tabindex="0" aria-expanded="false">
+  <button class="card-toggle" type="button" aria-expanded="false">
+    <span class="date">28 May 2025</span>
+    <div class="photo-wrap">
+      <img class="memory-image" src="3.jpg" alt="Memory photo from 28 May 2025"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="photo-placeholder" aria-hidden="true">🌻<span>Add photo</span></div>
+    </div>
+    <span class="plus" aria-hidden="true">+</span>
+  </button>
+  <div class="memory-content">
+    <p>The Big day, First Date, Confession Day</p>
+    <p>my bday, i confessed. kite blu. u came by 3:00 pm, the threw us out by 7:00 pm. i did all korali vithai to change ur mind. i loved that. that will best rejection of my life. the final hug. omg. that puzzle keychain, the symbol of our love</p>
+  </div>
+</article>
 
-<span class="plus" aria-hidden="true">+</span>
-        </button>
-        <div class="memory-content"><p>the day everything changed, u noticed and i confirmed that i have feelings for you. Best day. avloo azhaga irundha . i asked how was the day , u replied : 10/10 day but i joked that awww u said 10/10 date. lol </p></div>
-      </article>
+<!-- 13 JUNE 2025 — PHOTO: rename your photo to 4.JPG -->
+<article class="memory-card" tabindex="0" aria-expanded="false">
+  <button class="card-toggle" type="button" aria-expanded="false">
+    <span class="date">13 June 2025</span>
+    <div class="photo-wrap">
+      <img class="memory-image" src="4.JPG" alt="Memory photo from 13 June 2025"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="photo-placeholder" aria-hidden="true">🌻<span>Add photo</span></div>
+    </div>
+    <span class="plus" aria-hidden="true">+</span>
+  </button>
+  <div class="memory-content"><p>First time i called u after getting drunk.</p><p>u were listening to every crap i was blabbering. i love you</p></div>
+</article>
 
-      <article class="memory-card featured" tabindex="0" aria-expanded="false">
-        <button class="card-toggle" type="button" aria-expanded="false">
-          <span class="date">28 may 2025</span>
-          
-          <img class="memory-image" alt="Memory photo from 28 may 2025" src="3.jpg" data-photo="3.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-placeholder" aria-hidden="true">🌻<span>Add photo</span></div>
+<!-- 18 JUNE 2025 — PHOTO: rename your photo to 5.jpeg -->
+<article class="memory-card" tabindex="0" aria-expanded="false">
+  <button class="card-toggle" type="button" aria-expanded="false">
+    <span class="date">18 June 2025</span>
+    <div class="photo-wrap">
+      <img class="memory-image" src="5.jpeg" alt="Memory photo from 18 June 2025"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="photo-placeholder" aria-hidden="true">🌻<span>Add photo</span></div>
+    </div>
+    <span class="plus" aria-hidden="true">+</span>
+  </button>
+  <div class="memory-content"><p>Brought u jhumkhas for the first time, lied about the price cuz i would have killed me. hehe</p></div>
+</article>
 
-<span class="plus" aria-hidden="true">+</span>
-        </button>
-        <div class="memory-content"><p>The Big day, First Date, Confession Day</p><p>my bday, i confessed. kite blu. u came by 3:00 pm, the threw us out by 7:00 pm. i did all korali vithai to change ur mind. i loved that. that will best rejection of my life. the final hug. omg. that puzzle keychain, the symbol of our love</p></div>
-      </article>
+<!-- 21 JUNE 2025 — PHOTO: rename your photo to 6.JPG -->
+<article class="memory-card" tabindex="0" aria-expanded="false">
+  <button class="card-toggle" type="button" aria-expanded="false">
+    <span class="date">21 June 2025</span>
+    <div class="photo-wrap">
+      <img class="memory-image" src="6.JPG" alt="Memory photo from 21 June 2025"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="photo-placeholder" aria-hidden="true">🌻<span>Add photo</span></div>
+    </div>
+    <span class="plus" aria-hidden="true">+</span>
+  </button>
+  <div class="memory-content"><p>First time in Mc Donalds with you. sorry :) . we hugged and took the cutest picture.</p></div>
+</article>
 
-      <article class="memory-card" tabindex="0" aria-expanded="false">
-        <button class="card-toggle" type="button" aria-expanded="false">
-          <span class="date">13 June 2025</span>
-          
-          <img class="memory-image" alt="Memory photo from 13 June 2025" src="4.JPG" data-photo="4.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-placeholder" aria-hidden="true">🌻<span>Add photo</span></div>
+<!-- 28 JUNE 2025 — PHOTO: rename your photo to 7.jpeg -->
+<article class="memory-card" tabindex="0" aria-expanded="false">
+  <button class="card-toggle" type="button" aria-expanded="false">
+    <span class="date">28 June 2025</span>
+    <div class="photo-wrap">
+      <img class="memory-image" src="7.jpeg" alt="Memory photo from 28 June 2025"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="photo-placeholder" aria-hidden="true">🌻<span>Add photo</span></div>
+    </div>
+    <span class="plus" aria-hidden="true">+</span>
+  </button>
+  <div class="memory-content"><p>The Judgement day</p><p>OMG i was nervous. You accepted my confession and we captured a video. we kissed. omg the kiss. the taste is still in my mouth. you took the cutest picture of me.</p></div>
+</article>
 
-<span class="plus" aria-hidden="true">+</span>
-        </button>
-        <div class="memory-content"><p>First time i called u after getting drunk.</p><p>u were listening to every crap i was blabbering. i love you</p></div>
-      </article>
+<!-- 26 JULY 2025 — PHOTO: rename your photo to 8.jpg -->
+<article class="memory-card" tabindex="0" aria-expanded="false">
+  <button class="card-toggle" type="button" aria-expanded="false">
+    <span class="date">26 July 2025</span>
+    <div class="photo-wrap">
+      <img class="memory-image" src="8.jpg" alt="Memory photo from 26 July 2025"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="photo-placeholder" aria-hidden="true">🌻<span>Add photo</span></div>
+    </div>
+    <span class="plus" aria-hidden="true">+</span>
+  </button>
+  <div class="memory-content"><p>You helped me to clean our new flat. Another best day of my life.</p></div>
+</article>
 
-      <article class="memory-card" tabindex="0" aria-expanded="false">
-        <button class="card-toggle" type="button" aria-expanded="false">
-          <span class="date">18 June 2025</span>
-          
-          <img class="memory-image" alt="Memory photo from 18 June 2025" src="5.jpeg" data-photo="5.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-placeholder" aria-hidden="true">🌻<span>Add photo</span></div>
+<!-- 19 AUGUST 2025 — PHOTO: rename your photo to 9.jpeg -->
+<article class="memory-card" tabindex="0" aria-expanded="false">
+  <button class="card-toggle" type="button" aria-expanded="false">
+    <span class="date">19 August 2025</span>
+    <div class="photo-wrap">
+      <img class="memory-image" src="9.jpeg" alt="Memory photo from 19 August 2025"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="photo-placeholder" aria-hidden="true">🌻<span>Add photo</span></div>
+    </div>
+    <span class="plus" aria-hidden="true">+</span>
+  </button>
+  <div class="memory-content"><p>we went for shopping to buy suite for me. the one and only fashion advisor in my life. you are the best.</p></div>
+</article>
 
-<span class="plus" aria-hidden="true">+</span>
-        </button>
-        <div class="memory-content"><p>Brought u jhumkhas for the first time, lied about the price cuz i would have killed me. hehe</p></div>
-      </article>
+<!-- 10 SEPTEMBER 2025 — PHOTO: rename your photo to 10.JPG -->
+<article class="memory-card" tabindex="0" aria-expanded="false">
+  <button class="card-toggle" type="button" aria-expanded="false">
+    <span class="date">10 September 2025</span>
+    <div class="photo-wrap">
+      <img class="memory-image" src="10.JPG" alt="Memory photo from 10 September 2025"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="photo-placeholder" aria-hidden="true">🌻<span>Add photo</span></div>
+    </div>
+    <span class="plus" aria-hidden="true">+</span>
+  </button>
+  <div class="memory-content"><p>Onam in ur college</p><p>apove mudivu panten kalyanam panirnum nu. apdiyeeee lakshanama paahh.. my girlfriend can slay in both. modern and traditional.</p></div>
+</article>
 
-      <article class="memory-card" tabindex="0" aria-expanded="false">
-        <button class="card-toggle" type="button" aria-expanded="false">
-          <span class="date">21 June 2025</span>
-          
-          <img class="memory-image" alt="Memory photo from 21 June 2025" src="6.JPG" data-photo="6.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-placeholder" aria-hidden="true">🌻<span>Add photo</span></div>
+<!-- 14 NOVEMBER 2025 — PHOTO: rename your photo to 11.JPG -->
+<article class="memory-card" tabindex="0" aria-expanded="false">
+  <button class="card-toggle" type="button" aria-expanded="false">
+    <span class="date">14 November 2025</span>
+    <div class="photo-wrap">
+      <img class="memory-image" src="11.JPG" alt="Memory photo from 14 November 2025"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="photo-placeholder" aria-hidden="true">🌻<span>Add photo</span></div>
+    </div>
+    <span class="plus" aria-hidden="true">+</span>
+  </button>
+  <div class="memory-content"><p>i got sick. you came and you took care of me. you made rasam rice for me. thanks i love you</p></div>
+</article>
 
-<span class="plus" aria-hidden="true">+</span>
-        </button>
-        <div class="memory-content"><p>First time in Mc Donalds with you. sorry :) . we hugged and took the cutest picture.</p></div>
-      </article>
+<!-- GREEN CHAPTER BLOCK — intentionally not a portrait card -->
+<article class="memory-card chapter" aria-label="Everything started after this">
+  <div class="card-toggle">
+    <span class="date">EVERYTHING STARTED AFTER THIS. MY SISTER MARRIAGE.</span>
+  </div>
+</article>
 
-      <article class="memory-card" tabindex="0" aria-expanded="false">
-        <button class="card-toggle" type="button" aria-expanded="false">
-          <span class="date">28 June 2025</span>
-          
-          <img class="memory-image" alt="Memory photo from 28 June 2025" src="7.jpeg" data-photo="7.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-placeholder" aria-hidden="true">🌻<span>Add photo</span></div>
+<!-- 14 JANUARY 2026 — PHOTO: upload as 12.jpg when available -->
+<article class="memory-card" tabindex="0" aria-expanded="false">
+  <button class="card-toggle" type="button" aria-expanded="false">
+    <span class="date">14 January 2026</span>
+    <div class="photo-wrap">
+      <img class="memory-image" src="12.jpg" alt="Memory photo from 14 January 2026"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="photo-placeholder" aria-hidden="true">🌻<span>Add photo</span></div>
+    </div>
+    <span class="plus" aria-hidden="true">+</span>
+  </button>
+  <div class="memory-content"><p>The day i came for you and begged you to take me back. DESPITE EVERYTHING you did.i went back the next morning to home happily.</p></div>
+</article>
 
-<span class="plus" aria-hidden="true">+</span>
-        </button>
-        <div class="memory-content"><p>The Judgement day</p><p>OMG i was nervous. You accepted my confession and we captured a video. we kissed. omg the kiss. the taste is still in my mouth. you took the cutest picture of me.</p></div>
-      </article>
+<!-- 14 FEBRUARY 2026 — PHOTO: rename your photo to 13.JPG -->
+<article class="memory-card" tabindex="0" aria-expanded="false">
+  <button class="card-toggle" type="button" aria-expanded="false">
+    <span class="date">14 February 2026</span>
+    <div class="photo-wrap">
+      <img class="memory-image" src="13.JPG" alt="Memory photo from 14 February 2026"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="photo-placeholder" aria-hidden="true">🌻<span>Add photo</span></div>
+    </div>
+    <span class="plus" aria-hidden="true">+</span>
+  </button>
+  <div class="memory-content"><p>Our first valentines day. na plan pani vachirundhen.. ana ne thittunadhula na spoil panten. Still one of the best date ever.</p></div>
+</article>
 
-      <article class="memory-card" tabindex="0" aria-expanded="false">
-        <button class="card-toggle" type="button" aria-expanded="false">
-          <span class="date">26 July 2025</span>
-          
-          <img class="memory-image" alt="Memory photo from 26 July 2025" src="8.jpg" data-photo="8.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-placeholder" aria-hidden="true">🌻<span>Add photo</span></div>
+<!-- 31 MARCH 2026 — PHOTO: rename your photo to 14.JPG -->
+<article class="memory-card" tabindex="0" aria-expanded="false">
+  <button class="card-toggle" type="button" aria-expanded="false">
+    <span class="date">31 March 2026</span>
+    <div class="photo-wrap">
+      <img class="memory-image" src="14.JPG" alt="Memory photo from 31 March 2026"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="photo-placeholder" aria-hidden="true">🌻<span>Add photo</span></div>
+    </div>
+    <span class="plus" aria-hidden="true">+</span>
+  </button>
+  <div class="memory-content"><p>First movie date. Avloooooo azhaga vandhurundha.. pathutee irundhen.. Project Hail Mary... we were talking like them after movie lol</p></div>
+</article>
 
-<span class="plus" aria-hidden="true">+</span>
-        </button>
-        <div class="memory-content"><p>You helped me to clean our new flat. Another best day of my life.</p></div>
-      </article>
-
-      <article class="memory-card" tabindex="0" aria-expanded="false">
-        <button class="card-toggle" type="button" aria-expanded="false">
-          <span class="date">19 August 2025</span>
-          
-          <img class="memory-image" alt="Memory photo from 19 August 2025" src="9.jpeg" data-photo="9.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-placeholder" aria-hidden="true">🌻<span>Add photo</span></div>
-
-<span class="plus" aria-hidden="true">+</span>
-        </button>
-        <div class="memory-content"><p>we went for shopping to buy suite for me. the one and only fashion advisor in my life. you are the best.</p></div>
-      </article>
-
-      <article class="memory-card" tabindex="0" aria-expanded="false">
-        <button class="card-toggle" type="button" aria-expanded="false">
-          <span class="date">10 September 2025</span>
-          
-          <img class="memory-image" alt="Memory photo from 10 September 2025" src="10.JPG"  data-photo="10.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-placeholder" aria-hidden="true">🌻<span>Add photo</span></div>
-
-<span class="plus" aria-hidden="true">+</span>
-        </button>
-        <div class="memory-content"><p>Onam in ur college</p><p>apove mudivu panten kalyanam panirnum nu. apdiyeeee lakshanama paahh.. my girlfriend can slay in both. modern and traditional.</p></div>
-      </article>
-
-      <article class="memory-card" tabindex="0" aria-expanded="false">
-        <button class="card-toggle" type="button" aria-expanded="false">
-          <span class="date">14 November 2025</span>
-          
-          <img class="memory-image" alt="Memory photo from 14 November 2025" src="11.JPG"  data-photo="11.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-placeholder" aria-hidden="true">🌻<span>Add photo</span></div>
-
-<span class="plus" aria-hidden="true">+</span>
-        </button>
-        <div class="memory-content"><p>i got sick. you came and you took care of me. you made rasam rice for me. thanks i love you</p></div>
-      </article>
-
-      <article class="memory-card" tabindex="0" aria-expanded="false">
-        <button class="card-toggle" type="button" aria-expanded="false">
-          <span class="date">14 january 2026</span>
-          
-          <img class="memory-image" alt="Memory photo from 14 january 2026"  data-photo="12.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-placeholder" aria-hidden="true">🌻<span>Add photo</span></div>
-
-<span class="plus" aria-hidden="true">+</span>
-        </button>
-        <div class="memory-content"><p>The day i came for you and begged you to take me back. DESPITE EVERYTHING you did.i went back the next morning to home happily.</p></div>
-      </article>
-
-      <div class="memory-note" role="note">
-        <p>was busy all the weekends, everything was messy in my home so couldn&#x27;t invite you. i failed to handle it properly i failed to communicate properly.</p>
-      </div>
-
-      <article class="memory-card" tabindex="0" aria-expanded="false">
-        <button class="card-toggle" type="button" aria-expanded="false">
-          <span class="date">14 February 2026</span>
-          
-          <img class="memory-image" alt="Memory photo from 14 February 2026" src="13.JPG"  data-photo="13.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-placeholder" aria-hidden="true">🌻<span>Add photo</span></div>
-
-<span class="plus" aria-hidden="true">+</span>
-        </button>
-        <div class="memory-content"><p>Our first valentines day. na plan pani vachirundhen.. ana ne thittunadhula na spoil panten. Still one of the best date ever.</p></div>
-      </article>
-
-      <article class="memory-card" tabindex="0" aria-expanded="false">
-        <button class="card-toggle" type="button" aria-expanded="false">
-          <span class="date">31 March 2026</span>
-          
-          <img class="memory-image" alt="Memory photo from 31 March 2026" src="14.JPG" data-photo="14.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-placeholder" aria-hidden="true">🌻<span>Add photo</span></div>
-
-<span class="plus" aria-hidden="true">+</span>
-        </button>
-        <div class="memory-content"><p>First movie date. Avloooooo azhaga vandhurundha.. pathutee irundhen.. Project Hail Mary... we were talking like them after movie lol</p></div>
-      </article>
-
-      <article class="memory-card" tabindex="0" aria-expanded="false">
-        <button class="card-toggle" type="button" aria-expanded="false">
-          <span class="date">19 - 20 APRIl 2026</span>
-          
-          <img class="memory-image" alt="Memory photo from 19 - 20 APRIl 2026"  data-photo="15.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-placeholder" aria-hidden="true">🌻<span>Add photo</span></div>
-
-<span class="plus" aria-hidden="true">+</span>
-        </button>
-        <div class="memory-content"><p>initially it was happy. Later started to reflect everything on you. without any reasons. we both did things, we fought but you never gave up. what kind of a weak garbage am i. i felt things differently which i didn&#x27;t communicate properly. i should have. My life&#x27;s first biggest mistake was this. not reaching out to you. i wanted to but i didn&#x27;t. Again i spoiled everything gave all the reasons for you to leave me kill me bury me.</p></div>
-      </article>
+<!-- 19–20 APRIL 2026 — PHOTO: upload as 15.jpg when available -->
+<article class="memory-card" tabindex="0" aria-expanded="false">
+  <button class="card-toggle" type="button" aria-expanded="false">
+    <span class="date">19 - 20 April 2026</span>
+    <div class="photo-wrap">
+      <img class="memory-image" src="15.jpg" alt="Memory photo from 19–20 April 2026"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="photo-placeholder" aria-hidden="true">🌻<span>Add photo</span></div>
+    </div>
+    <span class="plus" aria-hidden="true">+</span>
+  </button>
+  <div class="memory-content"><p>initially it was happy. Later started to reflect everything on you. without any reasons. we both did things, we fought but you never gave up. what kind of a weak garbage am i. i felt things differently which i didn't communicate properly. i should have. My life's first biggest mistake was this. not reaching out to you. i wanted to but i didn't. Again i spoiled everything gave all the reasons for you to leave me kill me bury me.</p></div>
+</article>
 
 </section>
 
-<div style="text-align:center;padding:0 0 45px;">
+<div class="letter-link-wrap">
   <a class="letter-link" href="letter.html">Read the letter <span aria-hidden="true">→</span></a>
 </div>
+
 <footer>
   <div class="flower" aria-hidden="true">🌻</div>
   made with everything from the bottom of my heart.
 </footer>
+
 </main>
 
 <script>
